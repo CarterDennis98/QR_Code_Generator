@@ -1,9 +1,9 @@
 import qrcode
 import pandas
 
-df = pandas.read_excel('links/QR_Link_Test.xlsx')
+df = pandas.read_excel('CRP_Spreadsheet.xlsx')
 
 for ind in df.index:
-    img = qrcode.make(df['GE link'][ind])
+    img = qrcode.make('google.com/maps/place/' + str(df['Latitude'][ind]) + ',' + str(df['Longitude'][ind]))
     type(img)
-    img.save('codes/' + df['name'][ind] + '.png')
+    img.save('codes/' + df['Farm and Tract No.'][ind] + '.png')
