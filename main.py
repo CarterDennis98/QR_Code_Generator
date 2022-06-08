@@ -1,7 +1,7 @@
 import qrcode, pandas
 
-df = pandas.read_excel('CRP_Spreadsheet.xlsx')
+df = pandas.read_excel('tract_info.xlsx')
 
 for ind in df.index:
-    img = qrcode.make('https://www.google.com/maps/place/' + str(df['Latitude'][ind]) + ',' + str(df['Longitude'][ind]))
-    img.save('codes/' + df['Farm and Tract No.'][ind] + '.png')
+    img = qrcode.make('https://www.google.com/maps/place/' + str(df['lat'][ind]) + ',' + str(df['long'][ind]))
+    img.save('codes/' + df['name'][ind] + '.png')
